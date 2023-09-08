@@ -4,14 +4,11 @@ import { createContext, useState, useContext } from "react"
 const ThemeContext = createContext()
 
 //! 2-Sarmalayici (Provider) Component
-const ThemeProvider = ({ children }) => {
+const ThemeContextProvider = ({ children }) => {
   // //! Local State
-  const [user, setUser] = useState({ email: "", password: "" })
+ const [myTheme,setMyTheme]=useState("light");
 
-  const values = {
-    user,
-    setUser,
-  }
+  const values = {myTheme,setMyTheme};
 
   return (
     <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
@@ -19,8 +16,8 @@ const ThemeProvider = ({ children }) => {
 }
 
 //! 3- consuming custom hook
-export const useLoginContext = () => {
+export const useThemeContext = () => {
   return useContext(ThemeContext)
 }
 
-export default ThemeProvider
+export default ThemeContextProvider

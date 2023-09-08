@@ -1,8 +1,16 @@
-import React from 'react'
+
+import { darkIcon, lightIcon } from "../../helper/iconData"
+import { FooterBtn, FooterContainer } from "./Footer.style"
+import { useThemeContext } from "../../context/ThemeContext"
+
+
 
 const Footer = () => {
+  const [myTheme, setMyTheme] = useThemeContext()
   return (
-    <div>Footer</div>
+    <FooterContainer>
+      <FooterBtn>{myTheme===" light" ? lightIcon : darkIcon }</FooterBtn>
+    </FooterContainer>
   )
 }
 
