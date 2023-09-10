@@ -1,8 +1,10 @@
 import { ThemeProvider } from 'styled-components';
-import AppRouter from './router/AppRouter';
+
 import { lightTheme , darkTheme} from './styles/theme';
 import { GlobalStyles } from './styles/Global.styles';
 import { useThemeContext } from './context/ThemeContext';
+import AppRouter from './router/AppRouter';
+import AuthContextProvider from './context/AuthContext';
 
 
 function App() {
@@ -11,7 +13,9 @@ function App() {
   return (
     <ThemeProvider theme={themes}>
       <GlobalStyles/>
-      <AppRouter/>
+      <AuthContextProvider>
+      <AppRouter/> 
+      </AuthContextProvider>
     </ThemeProvider>
   );
 }
