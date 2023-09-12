@@ -1,8 +1,21 @@
 import React from 'react'
+import Header from '../../components/header/Header'
+import Card from '../../components/card/Card'
+import {HomeContainer , HomeImage,CardContainer}  from './Home.style'
+import homeImg from  "../../assets/books.jpg"
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <HomeContainer>
+      <Header/>
+      <HomeImage>
+     <img src={homeImg} alt='Home'/>
+      </HomeImage>
+      <CardContainer>
+     <Card/>
+      </CardContainer>
+    </HomeContainer>
   )
 }
 

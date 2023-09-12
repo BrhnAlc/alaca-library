@@ -10,6 +10,8 @@ export const lightTheme = {
       detailColor: "rgb(5,5,5)",
       linkHoverColor: "rgb(5,5,5)",
       headerFormColor: "rgba(15, 63, 42, 0.36)",
+      headerColor:"white",
+      
     },
     screens: {
       lg: "992px",
@@ -26,6 +28,7 @@ export const lightTheme = {
       detailColor: "white",
       linkHoverColor: "bisque",
       headerFormColor: "rgba(255, 255, 255, 0.46)",
+      headerColor:"red",
     },
     screens: {
       lg: "992px",
