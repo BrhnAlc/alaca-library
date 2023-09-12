@@ -49,7 +49,7 @@ background-color: rgb(255,255,255,0.5);
   width: 100%;
   border-radius: 5px;
 `
-export const SalectBox=styled.select`
+export const SelectBox=styled.select`
 border-radius: 3px;
   margin-top: 2rem;
   padding: 5px;

@@ -1,33 +1,38 @@
-import { createContext, useState, useContext, useEffect } from "react"
-import axios from "axios"
-//! 1- Auth Context'i olusuturuldu
-const BooksContext = createContext()
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
-//! 2-Sarmalayici (Provider) Component
+const BooksContext = createContext();
+
 const BooksContextProvider = ({ children }) => {
-  // //! Local State
- const [query,setQuery]=useState("");
- const [salectType,setSalectType]=useState("all");
- const [myData,setMyData]=useState([])
+  //   const [query, setQuery] = useState("");
+  //   const [selectType, setSelectType] = useState("all");
+  const [searchInfo, setSearchInfo] = useState({
+    query: "",
+    selectType: "all",
+  });
+  const [myData, setMyData] = useState([]);
 
- const APP_KEY=process.env.REACT_APP_apiKey
-console.log(APP_KEY);
-const getData=async ()=>{
-    const url=`https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${select}&key=${APP_KEY}`
-    try{
-        const {data} = await axios (url)
-    } catch (error)
-}
+  const APP_KEY = process.env.REACT_APP_apiKey;
+  console.log(APP_KEY);
 
- const values={myData,setMyData}
+  const getData = async () => {
+    // const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${selectType}&key=${APP_KEY}`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${searchInfo.query}&printType=${searchInfo.selectType}&key=${APP_KEY}`;
+    try {
+      const { data } = await axios(url);
+      console.log(data);
+      setMyData(data.items);
+    } catch (error) {}
+  };
+
+  const values = { myData, setMyData, getData, searchInfo, setSearchInfo };
   return (
-    <BooksContext.Provider value={}>{children}</BooksContext.Provider>
-  )
-}
+    <BooksContext.Provider value={values}>{children}</BooksContext.Provider>
+  );
+};
 
-//! 3- consuming custom hook
 export const useBooksContext = () => {
-  return useContext(BooksContext)
-}
+  return useContext(BooksContext);
+};
 
-export default BooksContextProvider
+export default BooksContextProvider;

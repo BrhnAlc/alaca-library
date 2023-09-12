@@ -5,6 +5,7 @@ import { GlobalStyles } from './styles/Global.styles';
 import { useThemeContext } from './context/ThemeContext';
 import AppRouter from './router/AppRouter';
 import AuthContextProvider from './context/AuthContext';
+import BooksContextProvider from './context/BooksContext';
 
 
 function App() {
@@ -14,7 +15,10 @@ function App() {
     <ThemeProvider theme={themes}>
       <GlobalStyles/>
       <AuthContextProvider>
-      <AppRouter/> 
+        <BooksContextProvider>
+        <AppRouter/> 
+      
+        </BooksContextProvider>
       </AuthContextProvider>
     </ThemeProvider>
   );
