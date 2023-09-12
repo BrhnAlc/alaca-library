@@ -14,7 +14,7 @@ const About = () => {
     <AboutContainer>
       <ProfileImg src={profile} alt="alaca" />
       <InfoContainer>
-        <h2>Hi, I'm alaca</h2>
+        <h2>Hi, I'm Burhan</h2>
         <h3>
           I'm currently learning different full-stack development languages.
         </h3>
