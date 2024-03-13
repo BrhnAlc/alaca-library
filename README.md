@@ -17,7 +17,7 @@
  
  * React
  * Context API
- * Module Css
+ * Styled-components
  * googleapis
    
 
